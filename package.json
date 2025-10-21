@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
+    "@types/papaparse": "^5.3.16",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "eslint": "^8.57.0",
@@ -31,4 +32,3 @@
     "typescript": "^5.5.4"
   }
 }
-
