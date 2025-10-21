@@ -1,0 +1,26 @@
+# Production Deployment Checklist
+
+- Domain & DNS
+  - Point `realtoraigrowth.com` and `www` to Vercel
+- Vercel Env
+  - NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - SUPABASE_SERVICE_ROLE (encrypted), OPENAI_API_KEY
+  - STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET
+  - STRIPE_PRICE_MONTHLY, STRIPE_PRICE_ANNUAL
+  - APP_URL=https://realtoraigrowth.com
+- Supabase
+  - Run `realtor_aigrowth_full_setup.sql`
+  - Verify RLS policies and profile trigger
+  - Configure storage (optional) and backups
+- Stripe
+  - Create Products: Monthly and Annual; copy Price IDs
+  - Set webhook to Vercel: `/api/stripe/webhook`
+  - Deploy Edge Function `stripe-sync` and add secrets
+- Security
+  - Set CORS, enable rate limits (Vercel/Edge)
+  - Rotate keys, restrict service role to server
+- Monitoring
+  - Enable Vercel Analytics, Supabase logs, Stripe logs
+- Smoke Test
+  - Sign up → upload CSV → summarize → PDF
+  - Checkout monthly/annual → plan updates in Supabase
