@@ -29,6 +29,7 @@ Open `http://localhost:3000`
 - Webhook (Next.js): set `STRIPE_WEBHOOK_SECRET`
 - Edge Function (recommended): `supabase functions deploy stripe-sync`
   - Set `STRIPE_PRICE_MONTHLY` and `STRIPE_PRICE_ANNUAL` (or `PRICE_MONTHLY_ID`/`PRICE_ANNUAL_ID`)
+  - For display-only pricing on marketing page, set `NEXT_PUBLIC_PRICE_MONTHLY` and `NEXT_PUBLIC_PRICE_ANNUAL`
 
 PowerShell helpers (Windows):
 ```powershell
